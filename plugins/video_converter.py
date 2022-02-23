@@ -1,5 +1,3 @@
-
-# the logging things
 import logging
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -36,7 +34,7 @@ from hachoir.parser import createParser
 from PIL import Image
 
 
-@Mai_bOTs.on_message(pyrogram.filters.command(["c2v"]))
+@app.on_message(pyrogram.filters.command(["c2v"]))
 async def convert_to_video(bot, update):
     update_channel = Config.UPDATE_CHANNEL
     if update_channel:
