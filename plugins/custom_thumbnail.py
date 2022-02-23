@@ -21,7 +21,7 @@ from PIL import Image
 
 
 
-@app.on_message(filters.photo)
+@Mai_bOTs.on_message(filters.photo)
 async def save_photo(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await bot.delete_messages(
@@ -57,7 +57,7 @@ async def save_photo(bot, update):
         )
 
 
-@app.on_message(filters.command(["delthumb"]))
+@Mai_bOTs.on_message(filters.command(["delthumb"]))
 async def delete_thumbnail(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await bot.delete_messages(
@@ -87,7 +87,7 @@ async def delete_thumbnail(bot, update):
     )
 
 
-@app.on_message(filters.command(["showthumb"]))
+@Mai_bOTs.on_message(filters.command(["showthumb"]))
 async def show_thumb(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await bot.delete_messages(
