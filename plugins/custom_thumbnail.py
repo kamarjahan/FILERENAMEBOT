@@ -16,7 +16,7 @@ from translation import Translation
 from pyrogram import filters
 from pyrogram import Client as MaI_BoTs
 
-import database.database as sql
+
 from PIL import Image
 
 
