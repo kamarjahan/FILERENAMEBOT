@@ -18,7 +18,7 @@ from pyrogram import Client as MaI_BoTs
 
 import database.database as sql
 from PIL import Image
-from database.database import *
+
 
 
 @app.on_message(filters.photo)
