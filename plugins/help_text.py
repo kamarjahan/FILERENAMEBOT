@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# (c) Shrimadhav U K & @No_OnE_Kn0wS_Me
 import logging
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -36,14 +33,14 @@ from database.database import *
 from database.db import *
 
 
-@Mai_bOTs.on_message(pyrogram.filters.command(["help"]))
+@app.on_message(pyrogram.filters.command(["help"]))
 async def help_user(bot, update):
     update_channel = Config.UPDATE_CHANNEL
     if update_channel:
         try:
             user = await bot.get_chat_member(update_channel, update.chat.id)
             if user.status == "kicked":
-               await update.reply_text(" Sorry, You're Banned")
+               await update.reply_text(" `Sorry, You're Banned`")
                return
         except UserNotParticipant:
             await update.reply_text(
@@ -74,7 +71,7 @@ async def help_user(bot, update):
         )
     )       
 
-@Mai_bOTs.on_message(pyrogram.filters.command(["start"]))
+@app.on_message(pyrogram.filters.command(["start"]))
 async def start_me(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await update.reply_text("You are Banned")
@@ -84,7 +81,7 @@ async def start_me(bot, update):
         try:
             user = await bot.get_chat_member(update_channel, update.chat.id)
             if user.status == "kicked":
-               await update.reply_text(" Sorry,You've Been Flooding Me So My Owner Removed You From Using Me If You Think It's An Error Contact : @Faris_TG")
+               await update.reply_text(" Sorry,You've Been Flooding Me So My Owner Removed You From Using Me If You Think It's An Error Contact : @devourdevils")
                return
         except UserNotParticipant:
             await update.reply_text(
@@ -102,12 +99,12 @@ async def start_me(bot, update):
                         InlineKeyboardButton("Help", callback_data = "ghelp")
                 ],
                 [
-                    InlineKeyboardButton('Support Channel', url='https://t.me/Mai_bOTs'),
-                    InlineKeyboardButton('Feedback', url='https://t.me/No_OnE_Kn0wS_Me')
+                    InlineKeyboardButton('Support Channel', url='https://t.me/septemberfilms'),
+                    InlineKeyboardButton('Feedback', url='https://t.m/devourdevils')
                 ],
                 [
-                    InlineKeyboardButton('Other Bots', url='https://t.me/Mai_bOTs/17'),
-                    InlineKeyboardButton('Source', url='https://github.com/No-OnE-Kn0wS-Me/FileRenameBot')
+                    InlineKeyboardButton('Other Bots', url='https://t.me/septemberfilms'),
+                    InlineKeyboardButton('Source', url='https://github.com/kamarjahan/FILERENAMEBOT')
                 ]
             ]
         ),
@@ -115,8 +112,8 @@ async def start_me(bot, update):
     )
             return 
 
-@Mai_bOTs.on_callback_query()
-async def cb_handler(client: Mai_bOTs , query: CallbackQuery):
+@app.on_callback_query()
+async def cb_handler(client: app , query: CallbackQuery):
     data = query.data
     if data == "rnme":
         await query.message.edit_text(
